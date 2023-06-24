@@ -10,3 +10,6 @@ def save(city):
     city.id = id
     return city
 
+def delete_all():
+    sql = "DELETE  FROM cities"
+    run_sql(sql)
