@@ -31,3 +31,19 @@ def show(id):
     country = country_repository.select(id)
     cities = city_repository.select_by_country(id)
     return render_template('/countries/show.html', country=country, cities=cities)
+
+
+@countries_blueprint.route('/countries/<id>/edit')
+def edit(id):
+    country = country_repository.select(id)
+    return render_template('countries/edit.html', country=country)
+
+
+@countries_blueprint.route('/countries/<id>', methods=['POST'])
+def update(id):
+    name = request.form["name"]
+    rating = request.form["rating"]
+    visited = "visited" in request.form
+    country = Country(name, rating, visited)
+    country_repository.update(country)
+    return redirect(f'/countries/{id}')

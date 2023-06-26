@@ -2,9 +2,10 @@
 
 {% block content %}
 <section>
-    <p>{{ country.name }}</p>
+    <h2>{{ country.name }}</h2>
     {% for city in cities %}
         {{ city.name }}
+        <a href="/cities/{{ city.id }}">Select</a>
         <br>
     {% endfor %}
 </section>

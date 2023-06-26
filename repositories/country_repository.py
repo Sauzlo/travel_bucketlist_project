@@ -3,7 +3,8 @@ from models.country import Country
 
 
 def save(country):
-    sql = "INSERT INTO countries (name, rating, visited) VALUES (%s, %s, %s) RETURNING *"
+    sql = """INSERT INTO countries (name, rating, visited) 
+             VALUES (%s, %s, %s) RETURNING *"""
     values = [country.name, country.rating, country.visited]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -48,6 +49,8 @@ def delete(id):
 
 
 def update(country):
-    sql = "UPDATE countries SET (name, rating, visited) = (%s, %s, %s) WHERE id = %s"
+    sql = """UPDATE countries 
+             SET (name, rating, visited) = (%s, %s, %s) 
+             WHERE id = %s"""
     values = [country.name, country.rating, country.visited, country.id]
     run_sql(sql, values)

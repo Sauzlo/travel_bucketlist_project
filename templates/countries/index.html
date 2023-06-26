@@ -13,6 +13,7 @@
             <p>{{ country.rating }}</p>
         {% endif %}
         <a href="/countries/{{ country.id }}">Details</a>
+        <a href="/countries/{{ country.id }}/edit">Update</a>
     {% endfor %}
 </section>
 {% endblock content %}

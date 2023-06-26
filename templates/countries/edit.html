@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/countries/{{ country.id }}" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="{{ country.name }}">
+    </div>
+    <div>
+        <label for="rating">Rating</label>
+        <input id="rating" name="rating" type="number" value="{{ country.rating }}">
+    </div>
+    <div>
+        <label for="visited">Visited:</label>
+        <input id="visited" name="visited" type="checkbox" {% if country.visited %} checked {% endif %}>
+    </div>
+    <input type="submit">
+</form>
+{% endblock content %}
