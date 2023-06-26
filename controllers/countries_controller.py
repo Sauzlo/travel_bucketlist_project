@@ -13,6 +13,19 @@ def index():
     return render_template('/countries/index.html', countries=countries)
 
 
+@countries_blueprint.route('/countries/new')
+def new():
+    return render_template('/countries/new.html')
+
+
+@countries_blueprint.route('/countries', methods=['POST'])
+def create():
+    name = request.form["name"]
+    country = Country(name)
+    country_repository.save(country)
+    return redirect('/countries')
+
+
 @countries_blueprint.route('/countries/<id>')
 def show(id):
     country = country_repository.select(id)

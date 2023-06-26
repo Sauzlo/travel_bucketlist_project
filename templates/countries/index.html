@@ -9,6 +9,9 @@
         {% else %}
             <p>You are yet to visit this country</p>
         {% endif %}
+        {% if country.rating is not none %}
+            <p>{{ country.rating }}</p>
+        {% endif %}
         <a href="/countries/{{ country.id }}">Details</a>
     {% endfor %}
 </section>

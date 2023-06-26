@@ -32,6 +32,12 @@ city_repository.save(city4)
 city5 = City("Paris", country2)
 city_repository.save(city5)
 
+city6 = City("Callais", country2)
+city_repository.save(city6)
+
+city7 = City("Bordeaux", country2)
+city_repository.save(city7)
+
 select_country = country_repository.select(country1.id)
 print(select_country.__dict__)
 
@@ -42,15 +48,15 @@ select_all_countries = country_repository.select_all()
 for country in select_all_countries:
     print(country.__dict__)
 
-country1 = Country("United Kingdom")
-country_repository.update(country1)
+# country1 = Country("United Kingdom")
+# country_repository.update(country1)
 
-print(country1.__dict__)
+# print(country1.__dict__)
 
-city1 = City("London", country1)
-city_repository.update(city1)
+# city1 = City("London", country1)
+# city_repository.update(city1)
 
-print(city1.__dict__)
+# print(city1.__dict__)
 
 
 pdb.set_trace()

@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/countries" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text">
+    </div>
+    <input type="submit">
+</form>
+{% endblock content %}
