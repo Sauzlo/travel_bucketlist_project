@@ -4,12 +4,19 @@
   <title>Travel Bucket List</title>
 </head>
 <body>
-<main>
+  <header>
+    <nav>
+      <ul class="navbar">
+        <li><a href="/">Home</a></li>
+        <li><a href="/countries">Countries</a></li>
+        <li><a href="/countries/new">Add Country</a></li>
+      </ul>
+    </nav>
+  </header>
   <section id="content">
       {% block content %}
 
       {% endblock%}
   </section>
-  </main>
 </body>
 </html>

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    {% for country in countries %}
+        <h2>{{ country.name }}</h2>
+        {% if country.visited == True %}
+            <p>Country has been visited</p>
+        {% else %}
+            <p>You are yet to visit this country</p>
+        {% endif %}
+        <a href="/countries/{{ country.id }}">Details</a>
+    {% endfor %}
+
+{% endblock content %}
