@@ -24,6 +24,19 @@ def select_all():
     return cities
 
 
+def select_by_country(country_id):
+    cities = []
+    sql = "SELECT * FROM cities WHERE country_id = %s"
+    values = [country_id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        city = City(row['name'], row['country_id'], row['visited'], row['id'])
+        cities.append(city)
+
+    return cities
+
+
 def select(id):
     city = None
     sql = "SELECT * FROM cities WHERE id = %s"

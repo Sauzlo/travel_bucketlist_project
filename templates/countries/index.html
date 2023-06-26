@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
+<section>
     {% for country in countries %}
         <h2>{{ country.name }}</h2>
         {% if country.visited == True %}
@@ -10,5 +11,5 @@
         {% endif %}
         <a href="/countries/{{ country.id }}">Details</a>
     {% endfor %}
-
+</section>
 {% endblock content %}

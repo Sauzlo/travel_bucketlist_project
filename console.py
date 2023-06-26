@@ -20,8 +20,17 @@ country_repository.save(country3)
 city1 = City("Dundee", country1)
 city_repository.save(city1)
 
-city2 = City("Paris", country2)
+city2 = City("Edinburgh", country1)
 city_repository.save(city2)
+
+city3 = City("Aberdeen", country1)
+city_repository.save(city3)
+
+city4 = City("Glasgow", country1)
+city_repository.save(city4)
+
+city5 = City("Paris", country2)
+city_repository.save(city5)
 
 select_country = country_repository.select(country1.id)
 print(select_country.__dict__)
