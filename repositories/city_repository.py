@@ -3,8 +3,8 @@ from models.city import City
 
 
 def save(city):
-    sql = "INSERT INTO cities (name, visited, country_id) VALUES (%s, %s, %s) RETURNING *"
-    values = [city.name, city.visited, city.country.id]
+    sql = "INSERT INTO cities (name, rating, visited, country_id) VALUES (%s, %s, %s, %s) RETURNING *"
+    values = [city.name, city.rating, city.visited, city.country.id]
     results = run_sql(sql, values)
     id = results[0]['id']
     city.id = id
@@ -18,7 +18,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        city = City(row['name'], row['country_id'], row['visited'], row['id'])
+        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
         cities.append(city)
     
     return cities
@@ -31,7 +31,7 @@ def select_by_country(country_id):
     results = run_sql(sql, values)
 
     for row in results:
-        city = City(row['name'], row['country_id'], row['visited'], row['id'])
+        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
         cities.append(city)
 
     return cities
@@ -45,7 +45,7 @@ def select(id):
 
     if result is not None:
         row = result[0]
-        city = City(row['name'], row['country_id'], row['visited'], row['id'])
+        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
 
     return city
 
@@ -62,6 +62,6 @@ def delete(id):
 
 
 def update(city):
-    sql = "UPDATE cities SET (name, country_id, visited) = (%s, %s, %s) WHERE id = %s"
-    values = [city.name, city.country.id, city.visited, city.id]
+    sql = "UPDATE cities SET (name, rating, country_id, visited) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [city.name, city.rating, city.country.id, city.visited, city.id]
     run_sql(sql, values)

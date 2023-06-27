@@ -2,7 +2,7 @@
 
 {% block content %}
 <section>
-    <h2>{{ country.name }}</h2>
+    <h2>{{ country.name }} <a href="/countries/{{ country.id }}/edit">Update</a></h2>
     {% if country.visited == True %}
             <p>Country has been visited</p>
         {% else %}
