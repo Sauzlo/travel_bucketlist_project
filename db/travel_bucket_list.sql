@@ -4,7 +4,7 @@ DROP TABLE countries;
 CREATE TABLE countries (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    rating INT,
+    rating INT CHECK (rating > 0 AND < 6),
     visited BOOLEAN
 );
 

@@ -44,6 +44,6 @@ def update(id):
     name = request.form["name"]
     rating = request.form["rating"]
     visited = "visited" in request.form
-    country = Country(name, rating, visited)
+    country = Country(name, rating, visited, id)
     country_repository.update(country)
     return redirect(f'/countries/{id}')
