@@ -2,15 +2,29 @@
 <html>
 <head>
   <title>Travel Bucket List</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
 </head>
 <body>
   <header>
+    <h1>Travel Bucket List</h1>
     <nav>
       <ul class="navbar">
-        <li><a href="/">Home</a></li>
-        <li><a href="/countries">Countries</a></li>
-        <li><a href="/countries/new">Add Country</a></li>
-        <li><a href="/cities/new">Add City</a></li>
+        <li><form action="/">
+          <input type="submit" value="Home"/>
+          </form></li>
+        <li><form action="/countries">
+          <input type="submit" value="Countries"/>
+          </form></li>
+        <li><form action="/countries/new">
+          <input type="submit" value="Add Country"/>
+          </form></li>
+        <li><form action="/cities/new">
+          <input type="submit" value="Add City"/>
+          </form></li>
       </ul>
     </nav>
   </header>

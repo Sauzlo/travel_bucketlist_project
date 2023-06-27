@@ -12,7 +12,9 @@
         {% if country.rating is not none %}
             <p>{{ country.rating }}</p>
         {% endif %}
-        <a href="/countries/{{ country.id }}">Details</a>
+        <form action="/countries/{{ country.id }}">
+            <input type="submit" value="Details"/>
+        </form>
     {% endfor %}
 </section>
 {% endblock content %}

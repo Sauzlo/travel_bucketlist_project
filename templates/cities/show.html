@@ -3,7 +3,7 @@
 {% block content %}
 <section>
     <h2>{{ city.name }}</h2>
-    <p>{{ country.name }}</p>
+    <p>City in {{ country.name }}</p>
     {% if city.visited == True %}
         <p>City has been visited</p>
     {% else %}
@@ -12,6 +12,12 @@
     {% if city.rating is not none %}
         <p>You rated this city {{ city.rating }}/5</p>
     {% endif %}
+    <form action="/cities/{{ city.id }}/edit" method="POST">
+        <input type="submit" value="Update"/>
+    </form><br>
+    <form action="/cities/{{ city.id }}/delete" method="POST">
+        <button>Delete</button>
+    </form>
 </section>
     
 {% endblock content %}

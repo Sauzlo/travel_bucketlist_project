@@ -2,7 +2,10 @@
 
 {% block content %}
 <section>
-    <h2>{{ country.name }} <a href="/countries/{{ country.id }}/edit">Update</a></h2>
+    <h2>{{ country.name }}</h2>
+    <form action="/countries/{{ country.id }}/edit">
+        <input type="submit" value="Update"/>
+    </form>
     {% if country.visited == True %}
             <p>Country has been visited</p>
         {% else %}
@@ -13,7 +16,9 @@
         {% endif %}
     {% for city in cities %}
         {{ city.name }}
-        <a href="/cities/{{ city.id }}">Select</a>
+        <form action="/cities/{{ city.id }}">
+            <input type="submit" value="Select"/>
+        </form>
         <br>
     {% endfor %}
 </section>

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<form action="/cities/{{ city.id }}" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input id="name" name="name" type="text" value="{{ city.name }}">
+    </div>
+    <div>
+        <label for="rating">Rating</label>
+        <input id="rating" name="rating" type="number" value="{{ city.rating }}" min="1" max="5">
+    </div>
+    <div>
+        <label for="visited">Visited:</label>
+        <input id="visited" name="visited" type="checkbox" {% if city.visited %} checked {% endif %}>
+    </div>
+    <label for="country">Country:</label>
+        <select id="country" name="country_id">
+            {% for country in countries %}
+            <option value="{{ country.id }}">
+                {{ country.name }}
+            </option>
+            {% endfor %}
+        </select>
+    <input type="submit">
+</form>
+{% endblock content %}
