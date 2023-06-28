@@ -1,5 +1,6 @@
 from db.run_sql import run_sql
 from models.city import City
+from repositories import country_repository
 
 
 def save(city):
@@ -18,7 +19,8 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
+        country = country_repository.select(row['country_id'])
+        city = City(row['name'], country, row['rating'], row['visited'], row['id'])
         cities.append(city)
     
     return cities
@@ -31,7 +33,8 @@ def select_by_country(country_id):
     results = run_sql(sql, values)
 
     for row in results:
-        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
+        country = country_repository.select(row['country_id'])
+        city = City(row['name'], country, row['rating'], row['visited'], row['id'])
         cities.append(city)
 
     return cities
@@ -45,7 +48,8 @@ def select(id):
 
     if result is not None:
         row = result[0]
-        city = City(row['name'], row['country_id'], row['rating'], row['visited'], row['id'])
+        country = country_repository.select(row['country_id'])
+        city = City(row['name'], country, row['rating'], row['visited'], row['id'])
 
     return city
 

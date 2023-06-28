@@ -2,10 +2,13 @@
 
 {% block content %}
 <form action="/countries" method="POST">
-    <div>
         <label for="name">Name</label>
         <input id="name" name="name" type="text">
-    </div>
     <input type="submit">
+</form>
+<!-- <h3>OR</h3> -->
+<form action="/countries/rand" method="POST">
+    <label>OR</label><br>
+    <button>Get a random Country</button>
 </form>
 {% endblock content %}

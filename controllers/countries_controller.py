@@ -1,6 +1,7 @@
 from flask import Blueprint, request, redirect, render_template
 from models.country import Country
 from repositories import country_repository, city_repository
+import random
 
 from flask import Blueprint
 
@@ -24,6 +25,18 @@ def create():
     country = Country(name)
     country_repository.save(country)
     return redirect('/countries')
+
+
+@countries_blueprint.route('/countries/rand', methods=['POST'])
+def rand():
+    countries = ["Netherlands", "Australia", "Japan", "Egypt", "Poland", 
+                 "Peru", "Canada", "Portugal", "China", "Nepal"]
+    random_number = random.randint(0, 9)
+    name = countries[random_number]
+    country = Country(name)
+    country_repository.save(country)
+    return redirect('/countries')
+
 
 
 @countries_blueprint.route('/countries/<id>')

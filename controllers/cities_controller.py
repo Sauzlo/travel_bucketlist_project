@@ -10,7 +10,7 @@ cities_blueprint = Blueprint('cities', __name__)
 @cities_blueprint.route('/cities/<id>')
 def show(id):
     city = city_repository.select(id)
-    country = country_repository.select(city.country)
+    country = country_repository.select(city.country.id)
     return render_template('/cities/show.html', city=city, country=country)
 
 

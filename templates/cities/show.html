@@ -12,7 +12,7 @@
     {% if city.rating is not none %}
         <p>You rated this city {{ city.rating }}/5</p>
     {% endif %}
-    <form action="/cities/{{ city.id }}/edit" method="POST">
+    <form action="/cities/{{ city.id }}/edit">
         <input type="submit" value="Update"/>
     </form><br>
     <form action="/cities/{{ city.id }}/delete" method="POST">

@@ -10,7 +10,7 @@
             <p>You are yet to visit this country</p>
         {% endif %}
         {% if country.rating is not none %}
-            <p>{{ country.rating }}</p>
+            <p>You rated this country {{ country.rating }}/5</p>
         {% endif %}
         <form action="/countries/{{ country.id }}">
             <input type="submit" value="Details"/>

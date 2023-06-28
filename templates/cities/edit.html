@@ -3,25 +3,27 @@
 {% block content %}
 <form action="/cities/{{ city.id }}" method="POST">
     <div>
-        <label for="name">Name</label>
+        <label for="name">Name: </label>
         <input id="name" name="name" type="text" value="{{ city.name }}">
-    </div>
+    </div><br>
     <div>
-        <label for="rating">Rating</label>
+        <label for="rating">Rating: </label>
         <input id="rating" name="rating" type="number" value="{{ city.rating }}" min="1" max="5">
-    </div>
+    </div><br>
     <div>
-        <label for="visited">Visited:</label>
+        <label for="visited">Visited: </label>
         <input id="visited" name="visited" type="checkbox" {% if city.visited %} checked {% endif %}>
-    </div>
-    <label for="country">Country:</label>
+    </div><br>
+    <div>
+        <label for="country">Country: </label>
         <select id="country" name="country_id">
             {% for country in countries %}
-            <option value="{{ country.id }}">
+            <option value="{{ country.id }}" {% if country.id == city.country.id %} selected {% endif %}>
                 {{ country.name }}
             </option>
             {% endfor %}
         </select>
+    </div><br>
     <input type="submit">
 </form>
 {% endblock content %}
