@@ -7,6 +7,9 @@ body{
     background-size: cover;
   }
 
+h1 {
+    padding-left: 3rem;
+}
 
 nav>ul{
     list-style-type: none;
@@ -61,4 +64,5 @@ input:hover {
     background-color: #393939;
     color: white;
 }
+
 

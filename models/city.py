@@ -7,8 +7,3 @@ class City:
         self.id = id
 
     
-    def mark_as_visited(self):
-        self.visited = True
-
-    def change_name(self, name):
-        self.name = name

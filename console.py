@@ -8,7 +8,7 @@ import repositories.country_repository as country_repository
 city_repository.delete_all()
 country_repository.delete_all()
 
-country1 = Country("Scotland")
+country1 = Country("Scotland", 5, True)
 country_repository.save(country1)
 
 country2 = Country("France")
@@ -17,7 +17,7 @@ country_repository.save(country2)
 country3 = Country("Italy")
 country_repository.save(country3)
 
-city1 = City("Dundee", country1)
+city1 = City("Dundee", country1, 5, True)
 city_repository.save(city1)
 
 city2 = City("Edinburgh", country1)
@@ -37,6 +37,12 @@ city_repository.save(city6)
 
 city7 = City("Bordeaux", country2)
 city_repository.save(city7)
+
+city8 = City("Naples", country3)
+city_repository.save(city8)
+
+city9 = City("Florence", country3)
+city_repository.save(city9)
 
 # select_country = country_repository.select(country1.id)
 # print(select_country.__dict__)
